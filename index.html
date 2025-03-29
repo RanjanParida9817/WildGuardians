@@ -1,0 +1,1496 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>WildGuardians </title>
+  <script src="https://unpkg.com/feather-icons"></script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+  <!-- Link Swiper's CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap"
+    rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="style.css">
+
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+
+    html,
+    body {
+      height: 100%;
+      overflow-y: auto;
+      overflow-x: hidden;
+    
+    }
+
+    body {
+
+      /* background-color: #f0f0f0;  */
+      background-color: rgb(207, 249, 207);
+      font-family: "Open Sans", sans-serif;
+
+    }
+
+    .navbar {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+
+    .swiper {
+      width: 100%;
+      height: 100%;
+    }
+
+    .swiper-slide {
+      /* text-align: center; */
+      font-size: 18px;
+      background: #fff;
+      /* display: flex;
+      justify-content: center;
+      align-items: center; */
+
+
+    }
+
+    .hero .swiper-slide {
+      background-image: url(./slider-images/images/58aae0ad-23a1-43e5-9a74-5865eccfe45a.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .swiper-slide img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+
+    .hero .swiper-slide:nth-child(2) {
+      background-image: url(./slider-images/images/c7b0f319-4b4e-4629-abc0-7e8bf962c6d5.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .hero .swiper-slide:nth-child(3) {
+      background-image: url(./slider-images/images/amurleopard.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .hero .swiper-slide:nth-child(4) {
+      background-image: url(./slider-images/images/redpanda.png);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+
+    .swiper-slide img {
+      /* display: block; */
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-slide1:nth-child(2n),
+    .about-slide1:nth-child(1n) {
+      background-image: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .species-section .species-swiper,
+    .criteria-section,
+    .criteria-swiper {
+      background-image: none;
+    }
+
+    li::before {
+      position: absolute;
+      content: "";
+      bottom: -15%;
+      border-bottom: 2px solid rgb(12, 202, 12);
+      width: 0%;
+
+      transition: all .2s linear;
+    }
+
+    li:hover::before {
+      width: 100%;
+    }
+
+
+
+
+
+    .profile-card::after,
+    .profile-card::before {
+      --angle: 0deg;
+      content: "";
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      /* background-color: red; */
+      background-image: conic-gradient(from var(--angle), transparent 10%, green, rgb(79, 232, 79), rgb(151, 210, 151));
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: -2;
+      padding: 95px;
+
+      animation: 2.5s spin linear infinite;
+
+    }
+
+    @keyframes spin {
+      from {
+        --angle: 0deg;
+      }
+
+      to {
+        --angle: 360deg;
+      }
+    }
+
+    .profile-card::before {
+      filter: blur(1.5rem);
+      opacity: 0.5;
+    }
+
+    .common-heading::before {
+      content: "";
+      position: absolute;
+      width: 1.5rem;
+      height: 1.5rem;
+      left: 0%;
+      top: 75%;
+      background-color: rgb(34, 34, 106);
+      border-radius: 50%;
+    }
+
+    .common-heading::after {
+      content: "";
+      position: absolute;
+      top: 90%;
+      left: 1%;
+      min-width: 15rem;
+      height: 0.2rem;
+      background-color: rgb(34, 34, 106);
+
+
+
+    }
+
+    .main-heading {
+      font-family: "Montserrat", sans-serif;
+    }
+  </style>
+  
+</head>
+
+<body>
+
+  <!--Navbar Section-->
+  <nav class="font-mullish shadow-xl backdrop-blur-3xl   navbar">
+    <div class="w-11/12 max-w-[1300px] mx-auto relative flex justify-between items-center pt-4 pb-4  ">
+
+      <div class="max-w-[200px] ">
+        <img src="./slider-images/images/wildGuardianslogo.png" alt="" class="w-full h-full object-cover">
+      </div>
+
+      <div>
+        <form class="relative flex items-center">
+          <i class="fa-solid fa-magnifying-glass absolute top-1 left-3 text-lg text-[#e8eaed]"></i>
+          <input type="text" placeholder="Search for Species..."
+            class="placeholder:text-[#e8eaed] text-[#e8eaed] *:font-thin  pt-[0.5rem] pb-[0.5rem] pl-[2.5rem] pr-[10.5rem] rounded-full border-none outline-none bg-[#2E313B]  ">
+        </form>
+      </div>
+
+
+
+      <div class="flex gap-3 items-center ">
+
+        <ul class="flex space-x-5">
+          <li class=" text-base font-medium hover:text-green-700 transition-all duration-200 relative cursor-pointer">
+            <a href="#">Home</a>
+          </li>
+
+          <li class=" text-base font-medium hover:text-green-700 transition-all duration-200 relative cursor-pointer">
+            <a href="#">About</a>
+          </li>
+
+          <li class=" text-base font-medium  hover:text-green-700 transition-all duration-200 relative cursor-pointer">
+            <a href="#">Contact </a>
+          </li>
+
+          <li class=" text-base font-medium hover:text-green-700 transition-all duration-200  relative cursor-pointer ">
+            <a href="#">Assessment</a>
+          </li>
+        </ul>
+
+        <button
+          class="bg-transparent  md:py-3 md:px-5 py-1 px-2 max-h-[60px] self-center text-black font-mullish transition-all duration-100 hover:text-gray-500 border-none rounded-lg  text-sm font-bold ">
+          Login
+        </button>
+
+        <button
+          class="bg-gray-700 py-3 px-4 font-mullish text-greenLight text-sm font-bold   rounded-lg transition-all duration-200 hover:text-green-500 hover:bg-gray-800 hidden md:block">
+          For Contributors
+          <i class="ri-arrow-right-line font-thin text-sm ml-2"></i>
+        </button>
+
+        <i class="ri-menu-line md:hidden lg:hidden block text-white text-2xl"></i>
+      </div>
+
+    </div>
+
+  </nav>
+
+
+  <!-- Swiper Hero Section -->
+  <section class="font-mullish w-full h-full mt-6 hero">
+    <div class="w-11/12 max-w-[1300px] h-[85%] mx-auto ">
+
+      <div class="swiper mySwiper rounded-lg ">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide  rounded-lg relative flex justify-start items-center ">
+
+            <div class="slider-content  relative text-green z-20 max-w-[50%] pl-16 ">
+              <h3 class="text-[18px] tracking-wider uppercase font-semibold font-normal text-white">Pavo Cristatus</h3>
+              <h2 class="text-6xl text-blue-200  main-heading font-extrabold  uppercase">Indian Peacock</h2>
+              <p class="mt-6 leading-[1.4] text-[17px] text-blue-100">
+                The Indian peacock, a living jewel of the subcontinent, enchants with its iridescent plumage and
+                graceful dance. Its vibrant feathers, a tapestry of blue and green, symbolize the rich cultural heritage
+                and natural splendor of India. As the national bird, it stands as a proud emblem of the nation's beauty
+                and diversity.
+              </p>
+              <button
+                class="pl-4 pr-4 pt-3 pb-3 bg-blue-300 rounded-md mt-6 text-black transition-all duration-200 hover:bg-blue-400 hover:text-white">Learn
+                more</button>
+            </div>
+
+
+          </div>
+
+
+
+          <div class="swiper-slide rounded-lg flex justify-start items-center">
+
+            <div class="slider-content  relative text-green z-20 max-w-[50%] pl-16 ">
+              <h3 class="text-[18px] tracking-wider uppercase font-semibold font-normal text-white">Panthera Tigris</h3>
+              <h2 class="text-7xl text-blue-200  main-heading font-extrabold  uppercase">Tiger</h2>
+              <p class="mt-6 leading-[1.4] text-[17px] text-blue-100">
+                The tiger, a majestic predator, roams the dense forests and grasslands of India with an aura of untamed
+                power. Its striking orange coat, adorned with bold black stripes, embodies the raw beauty and fierce
+                spirit of the wild. As a symbol of strength and courage, the tiger commands respect and awe, a true
+                monarch of the jungle.
+              </p>
+              <button
+                class="pl-4 pr-4 pt-3 pb-3 bg-blue-300 rounded-md mt-6 text-black transition-all duration-200 hover:bg-blue-400 hover:text-white">Learn
+                more</button>
+            </div>
+
+
+          </div>
+
+          <div class="swiper-slide rounded-lg flex justify-start items-center">
+
+
+            <div class="slider-content  relative text-green z-20 max-w-[50%] pl-16 ">
+              <h3 class="text-[18px] tracking-wider uppercase font-semibold font-normal text-white">Panthera pardus</h3>
+              <h2 class="text-7xl text-blue-200  main-heading font-extrabold  uppercase">leopard</h2>
+              <p class="mt-6 leading-[1.4] text-[17px] text-blue-100">
+                The Amur leopard, a rare and elusive beauty, prowls the snowy landscapes of the Russian Far East and
+                northern China. Its luxurious coat, dappled with distinctive rosettes, blends seamlessly into the wintry
+                forest, making it a ghost of the taiga.
+              </p>
+              <button
+                class="pl-4 pr-4 pt-3 pb-3 bg-blue-300 rounded-md mt-6 text-black transition-all duration-200 hover:bg-blue-400 hover:text-white">Learn
+                more</button>
+            </div>
+
+
+          </div>
+
+          <div class="swiper-slide rounded-lg flex justify-start items-center">
+
+            <div class="slider-content  relative text-green z-20 max-w-[50%] pl-16 ">
+              <h3 class="text-[18px] tracking-wider uppercase font-semibold font-normal text-white">Ailurus fulgens</h3>
+              <h2 class="text-7xl text-blue-200  main-heading font-extrabold  uppercase">Red panda</h2>
+              <p class="mt-6 leading-[1.4] text-[17px] text-blue-100">
+                The red panda, a captivating creature of the Himalayan forests, enchants with its fiery fur and playful
+                demeanor. Its striking coat, a mosaic of red and white, blends harmoniously with the misty mountain
+                foliage, making it a hidden gem of the wild. As a symbol of the delicate ecosystems it inhabits, the red
+                panda reminds us of the quiet wonders that thrive in nature's embrace.
+
+
+              </p>
+              <button
+                class="pl-4 pr-4 pt-3 pb-3 bg-blue-300 rounded-md mt-6 text-black transition-all duration-200 hover:bg-blue-400 hover:text-white">Learn
+                more</button>
+            </div>
+
+
+          </div>
+
+
+
+        </div>
+
+        <div class="swiper-pagination"></div>
+      </div>
+
+    </div>
+  </section>
+
+
+
+  <!--Species section-->
+  <section class="font-mullish w-full species-section ">
+    <div class="w-11/12 max-w-[1300px] mx-auto flex flex-col items-center">
+      <h2 class="text-5xl  heading common-heading relative  pb-5 mb-9 ">Species</h2>
+
+      <div class="swiper  mySwiper2 ">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide species-swiper   cursor-pointer ">
+
+            <div class="slider-box ">
+              <figure class="">
+                <img src="./slider-images/images/ursus-arctos.jpg" alt="" class="w-full h-auto object-cover ">
+              </figure>
+
+              <div class="p-5">
+                <div class="flex justify-between items-center">
+                  <h4 class="text-[14px]">ANIMALIA-MAMMALIA</h4>
+                  <h4 class="text-[14px]">GLOBAL</h4>
+                </div>
+                <h2 class="text-[25px] tracking-tight font-bold pb-1 text-green-950">BROWN BEAR</h2>
+                <h3 class="text-sm italic text-gray-600">Ursus arctos</h3>
+
+                <div class="w-full mt-4">
+                  <i></i>
+                  <p class="text-base ">Stable</p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="swiper-slide species-swiper   cursor-pointer ">
+
+            <div class="slider-box flex flex-col ">
+              <figure>
+                <img src="./slider-images/images/ilex-aquifolium.jpg" alt=""
+                  class="w-full h-auto object-cover max-h-[202px] ">
+              </figure>
+
+              <div class="p-5">
+                <div class="flex justify-between items-center">
+                  <h4 class="text-[14px]">ANIMALIA-MAMMALIA</h4>
+                  <h4 class="text-[14px]">GLOBAL</h4>
+                </div>
+                <h2 class="text-[25px] tracking-tight font-bold pb-1 text-green-950">BROWN BEAR</h2>
+                <h3 class="text-sm italic text-gray-600">Ursus arctos</h3>
+
+                <div class="w-full mt-4">
+                  <i></i>
+                  <p class="text-base ">Stable</p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="swiper-slide species-swiper   cursor-pointer ">
+
+            <div class="slider-box ">
+              <figure>
+                <img src="./slider-images/images/mimus-trifasciatus.jpg" alt=""
+                  class="w-full object-cover max-h-[202px]">
+              </figure>
+
+              <div class="p-5">
+                <div class="flex justify-between items-center">
+                  <h4 class="text-[14px]">ANIMALIA-MAMMALIA</h4>
+                  <h4 class="text-[14px]">GLOBAL</h4>
+                </div>
+                <h2 class="text-[25px] tracking-tight font-bold pb-1 text-green-950">BROWN BEAR</h2>
+                <h3 class="text-sm italic text-gray-600">Ursus arctos</h3>
+
+                <div class="w-full mt-4">
+                  <i></i>
+                  <p class="text-base ">Stable</p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="swiper-slide species-swiper   cursor-pointer ">
+
+            <div class="slider-box  ">
+              <figure class="">
+                <img src="./slider-images/images/brookesia-perarmata.jpg" alt=""
+                  class=" object-cover w-full max-h-[202px] ">
+              </figure>
+
+              <div class="p-5 max-h-[60%]">
+                <div class="flex justify-between items-center">
+                  <h4 class="text-[14px]">ANIMALIA-MAMMALIA</h4>
+                  <h4 class="text-[14px]">GLOBAL</h4>
+                </div>
+                <h2 class="text-[25px] tracking-tight font-bold pb-1 text-green-950">BROWN BEAR</h2>
+                <h3 class="text-sm italic text-gray-600">Ursus arctos</h3>
+
+                <div class="w-full mt-4">
+                  <i></i>
+                  <p class="text-base ">Stable</p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="swiper-slide species-swiper   cursor-pointer ">
+
+            <div class="slider-box ">
+              <figure>
+                <img src="./slider-images/images/ursus-arctos.jpg" alt="" class="w-full object-cover max-h-[202px] ">
+              </figure>
+
+              <div class="p-5">
+                <div class="flex justify-between items-center">
+                  <h4 class="text-[14px]">ANIMALIA-MAMMALIA</h4>
+                  <h4 class="text-[14px]">GLOBAL</h4>
+                </div>
+                <h2 class="text-[25px] tracking-tight font-bold pb-1 text-green-950">BROWN BEAR</h2>
+                <h3 class="text-sm italic text-gray-600">Ursus arctos</h3>
+
+                <div class="w-full mt-4">
+                  <i></i>
+                  <p class="text-base ">Stable</p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="swiper-slide species-swiper   cursor-pointer ">
+
+            <div class="slider-box ">
+              <figure>
+                <img src="./slider-images/images/ilex-aquifolium.jpg" alt="" class="w-full object-cover max-h-[202px]">
+              </figure>
+
+              <div class="p-5">
+                <div class="flex justify-between items-center">
+                  <h4 class="text-[14px]">ANIMALIA-MAMMALIA</h4>
+                  <h4 class="text-[14px]">GLOBAL</h4>
+                </div>
+                <h2 class="text-[25px] tracking-tight font-bold pb-1 text-green-950">BROWN BEAR</h2>
+                <h3 class="text-sm italic text-gray-600">Ursus arctos</h3>
+
+                <div class="w-full mt-4">
+                  <i></i>
+                  <p class="text-base ">Stable</p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+
+          <div class="swiper-slide species-swiper   cursor-pointer ">
+
+            <div class="slider-box ">
+              <figure>
+                <img src="./slider-images/images/mimus-trifasciatus.jpg" alt=""
+                  class="w-full object-cover max-h-[202px]">
+              </figure>
+
+              <div class="p-5">
+                <div class="flex justify-between items-center">
+                  <h4 class="text-[14px]">ANIMALIA-MAMMALIA</h4>
+                  <h4 class="text-[14px]">GLOBAL</h4>
+                </div>
+                <h2 class="text-[25px] tracking-tight font-bold pb-1 text-green-950">BROWN BEAR</h2>
+                <h3 class="text-sm italic text-gray-600">Ursus arctos</h3>
+
+                <div class="w-full mt-4">
+                  <i></i>
+                  <p class="text-base ">Stable</p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+          <div class="swiper-slide species-swiper   cursor-pointer ">
+
+            <div class="slider-box ">
+              <figure>
+                <img src="./slider-images/images/brookesia-perarmata.jpg" alt=""
+                  class="w-full object-cover  max-h-[202px]">
+              </figure>
+
+              <div class="p-5">
+                <div class="flex justify-between items-center">
+                  <h4 class="text-[14px]">ANIMALIA-MAMMALIA</h4>
+                  <h4 class="text-[14px]">GLOBAL</h4>
+                </div>
+                <h2 class="text-[25px] tracking-tight font-bold pb-1 text-green-950">BROWN BEAR</h2>
+                <h3 class="text-sm italic text-gray-600">Ursus arctos</h3>
+
+                <div class="w-full mt-4">
+                  <i></i>
+                  <p class="text-base ">Stable</p>
+                </div>
+
+              </div>
+
+            </div>
+
+          </div>
+
+        </div>
+
+        <div class="swiper-button-next text-blue-600 font-extrabold "></div>
+        <div class="swiper-button-prev text-blue-600 font-extrabold  "></div>
+      </div>
+
+  </section>
+
+
+
+
+  <!--Swiper about us section-->
+  <section class="font-mullish w-full h-full mt-[3.5rem]">
+    <div class="w-11/12 max-w-[1300px] h-[100%] mx-auto flex items-center flex-col ">
+      <h2 class="text-5xl   heading common-heading relative   pb-5">About Us</h2>
+
+      <div class="swiper mySwiper about-parent relative rounded-lg mt-8">
+        <div class="swiper-wrapper ">
+          <div class="swiper-slide about-slide1  rounded-lg relative">
+
+            <div class="slider-content relative flex flex-col  items-center  w-full ">
+
+              <div class="w-[180px] h-[180px] rounded-full relative profile-card">
+                <img
+                  src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="" class="rounded-full object-cover w-full h-full">
+              </div>
+
+              <h2 class="font-mullish mt-4 mb-3 text-[25px] font-bold leading-[1.2] text-black ">Dr. Swatee Rekha
+                Mohanty
+              </h2>
+              <p class="font-mullish font-semibold text-[16px] text-green-600 mb-10">HOD,BCA</p>
+              <p class="font-mullish text-[18px] leading-7 text-gray-700 opacity-70 w-[50%] text-center">
+                Dr. Swatee Rekha Mohanty is an accomplished academician and researcher, currently serving as the Head of
+                the
+                Department (HOD) of the BCA Department in RIMS(Rourkela Institute of Management Studies),Rourkela. With
+                extensive experience in research and development, Dr. Mohanty has made significant contributions to the
+                field of computer applications and allied disciplines. Through her leadership, she continues to inspire
+                students and colleagues alike, driving advancements in technology and education.
+              </p>
+
+              <div class="flex gap-5 items-center justify-center pt-8 cursor-pointer ">
+                <i
+                  class="ri-facebook-fill  bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent">
+                </i>
+                <i
+                  class="ri-twitter-x-fill  bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent"></i>
+                <i
+                  class="ri-instagram-line   bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent"></i>
+              </div>
+
+            </div>
+
+
+          </div>
+
+          <div class="swiper-slide about-slide1  rounded-lg relative">
+
+            <div class="slider-content relative flex flex-col  items-center  w-full ">
+
+              <div class="w-[180px] h-[180px] rounded-full relative profile-card">
+                <img
+                  src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="" class="rounded-full object-cover w-full h-full">
+              </div>
+
+              <h2 class="font-mullish mt-4 mb-3 text-[25px] font-bold leading-[1.2] text-black ">Ranjan Kumar Parida
+              </h2>
+              <p class="font-mullish font-semibold text-[16px] text-green-600 mb-10">Student,RIMS</p>
+              <p class="font-mullish text-[18px] leading-7 text-gray-700 opacity-70 w-[50%] text-center">
+                Hi, I'm Ranjan! I'm passionate about web development and love exploring the endless possibilities of the
+                digital world. Currently, I'm pursuing my Bachelor of Computer Applications (BCA) at RIMS Rourkela.
+                Whether
+                it's designing sleek interfaces or building functional web applications, I'm always eager to learn and
+                create. Welcome to my space, where I share my projects, experiences, and everything I’m learning on my
+                web
+                development journey!
+              </p>
+
+              <div class="flex gap-5 items-center justify-center pt-8 cursor-pointer ">
+                <i
+                  class="ri-facebook-fill  bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent">
+                </i>
+                <i
+                  class="ri-twitter-x-fill  bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent"></i>
+                <i
+                  class="ri-instagram-line   bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent"></i>
+              </div>
+
+            </div>
+
+
+          </div>
+
+          <div class="swiper-slide about-slide1  rounded-lg relative">
+
+            <div class="slider-content relative flex flex-col  items-center  w-full ">
+
+              <div class="w-[180px] h-[180px] rounded-full relative profile-card">
+                <img
+                  src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="" class="rounded-full object-cover w-full h-full">
+              </div>
+
+              <h2 class="font-mullish mt-4 mb-3 text-[25px] font-bold leading-[1.2] text-black ">Anuj Sahu
+              </h2>
+              <p class="font-mullish font-semibold text-[16px] text-green-600 mb-10">Student,RIMS</p>
+              <p class="font-mullish text-[18px] leading-7 text-gray-700 opacity-70 w-[50%] text-center">
+                Hi, I’m Anuj Sahu, a BCA student at RIMS Rourkela with a deep passion for Machine Learning and
+                Artificial
+                Intelligence. I’m constantly exploring the intersection of technology and innovation, aiming to build
+                intelligent solutions that make an impact. Through my journey, I strive to learn, experiment, and
+                contribute
+                to the ever-evolving world of AI. Welcome to my space, where I share my projects, insights, and
+                experiences!"
+              </p>
+
+              <div class="flex gap-5 items-center justify-center pt-8 cursor-pointer ">
+                <i
+                  class="ri-facebook-fill  bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent">
+                </i>
+                <i
+                  class="ri-twitter-x-fill  bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent"></i>
+                <i
+                  class="ri-instagram-line   bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent"></i>
+              </div>
+
+            </div>
+
+
+          </div>
+
+          <div class="swiper-slide about-slide1  rounded-lg relative">
+
+            <div class="slider-content relative flex flex-col  items-center  w-full ">
+
+              <div class="w-[180px] h-[180px] rounded-full relative profile-card">
+                <img
+                  src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="" class="rounded-full object-cover w-full h-full">
+              </div>
+
+              <h2 class="font-mullish mt-4 mb-3 text-[25px] font-bold leading-[1.2] text-black ">Debasish Nayak
+              </h2>
+              <p class="font-mullish font-semibold text-[16px] text-green-600 mb-10">Student,RIMS</p>
+              <p class="font-mullish text-[18px] leading-7 text-gray-700 opacity-70 w-[50%] text-center">
+                Hi, I'm Debasish Nayak, a passionate student currently pursuing my Bachelor of Computer Applications
+                (BCA)
+                at RIMS Rourkela. My curiosity and love for technology have led me to explore the fascinating world of
+                Data
+                Science. I enjoy discovering patterns, deriving insights from data, and using analytical tools to solve
+                real-world problems.
+              </p>
+
+              <div class="flex gap-5 items-center justify-center pt-8 cursor-pointer ">
+                <i
+                  class="ri-facebook-fill  bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent">
+                </i>
+                <i
+                  class="ri-twitter-x-fill  bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent"></i>
+                <i
+                  class="ri-instagram-line   bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent"></i>
+              </div>
+
+            </div>
+
+
+          </div>
+
+          <div class="swiper-slide about-slide1  rounded-lg relative">
+
+            <div class="slider-content relative flex flex-col  items-center  w-full ">
+
+              <div class="w-[180px] h-[180px] rounded-full relative profile-card">
+                <img
+                  src="https://images.unsplash.com/photo-1501196354995-cbb51c65aaea?q=80&w=2071&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="" class="rounded-full object-cover w-full h-full">
+              </div>
+
+              <h2 class="font-mullish mt-4 mb-3 text-[25px] font-bold leading-[1.2] text-black ">Sumit Biswasray
+              </h2>
+              <p class="font-mullish font-semibold text-[16px] text-green-600 mb-10">Student,RIMS</p>
+              <p class="font-mullish text-[18px] leading-7 text-gray-700 opacity-70 w-[50%] text-center">
+                Hi, I'm Sumit Biswasray, a passionate student currently pursuing my Bachelor of Computer Applications
+                (BCA)
+                at RIMS Rourkela. My curiosity and dedication to technology have led me to explore the dynamic field of
+                Cybersecurity. I am enthusiastic about protecting digital assets, understanding cyber threats, and
+                ensuring
+                online safety.
+              </p>
+
+              <div class="flex gap-5 items-center justify-center pt-8 cursor-pointer ">
+                <i
+                  class="ri-facebook-fill  bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent">
+                </i>
+                <i
+                  class="ri-twitter-x-fill  bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent"></i>
+                <i
+                  class="ri-instagram-line   bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent"></i>
+              </div>
+
+            </div>
+
+
+          </div>
+
+          <div class="swiper-slide about-slide1  rounded-lg relative">
+
+            <div class="slider-content relative flex flex-col  items-center  w-full ">
+
+              <div class="w-[180px] h-[180px] rounded-full relative profile-card">
+                <img
+                  src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                  alt="" class="rounded-full object-cover w-full h-full">
+              </div>
+
+              <h2 class="font-mullish mt-4 mb-3 text-[25px] font-bold leading-[1.2] text-black ">Pradeepti Mitra
+              </h2>
+              <p class="font-mullish font-semibold text-[16px] text-green-600 mb-10">Student,RIMS</p>
+              <p class="font-mullish text-[18px] leading-7 text-gray-700 opacity-70 w-[50%] text-center">
+                Hi, I'm Pradeepti Mitra, a passionate student currently pursuing my Bachelor of Computer Applications
+                (BCA)
+                at RIMS Rourkela. My curiosity and enthusiasm for technology have driven me to explore the exciting
+                field of
+                Data Science. I love analyzing data, uncovering insights, and applying innovative solutions to
+                real-world
+                challenges.
+              </p>
+
+              <div class="flex gap-5 items-center justify-center pt-8 cursor-pointer ">
+                <i
+                  class="ri-facebook-fill  bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent">
+                </i>
+                <i
+                  class="ri-twitter-x-fill  bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent"></i>
+                <i
+                  class="ri-instagram-line   bg-gray-700 text-white w-[3rem] aspect-square flex items-center justify-center rounded-[50%] text-xl transition-all duration-500 hover:rotate-[360deg] hover:text-gray-700 hover:bg-transparent"></i>
+              </div>
+
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+
+
+
+  <!--Card section-->
+  <section class="font-mullish w-full relative mt-12">
+    <div class="w-11/12 max-w-[1300px] mx-auto bg-red-500 p-8 rounded-md">
+      <h2 class="text-[45px] leading-[1.2] font-bold text-white">More than <span class="text-green-400 text-5xl  counter">0</span>
+        species<br>are
+        threatened with extinction</h2>
+      <h4 class="text-[30px] leading-[1.2] pt-3 font-semibold text-white">That is still <span>28%</span> of all assessed
+        species
+      </h4>
+
+      <div class="grid grid-cols-5   gap-1 mt-7 mb-2 text-white ">
+
+        <!--Card 1-->
+        <div class="flex space-x-4 items-center justify-center">
+
+          <div class="flex flex-col justify-between">
+            <p class="text-base">AMPHIBIANS</p>
+            <p class="text-4xl font-bold">41%</p>
+          </div>
+
+          <div class="w-full">
+            <img src="./slider-images/images/frogoutline.png" alt="" width="80px">
+          </div>
+
+        </div>
+
+        <!--Card 2-->
+        <div class="flex space-x-4 items-center justify-center  ">
+
+          <div class="flex flex-col justify-between">
+            <p class="text-base">MAMMALS</p>
+            <p class="text-4xl font-bold">26%</p>
+          </div>
+
+          <div class="w-full">
+            <img src="./slider-images/images/leopardoutline (2).png" alt="" width="100px">
+          </div>
+
+        </div>
+
+        <!--Card 3-->
+        <div class="flex space-x-4 items-center justify-center  ">
+
+          <div class="flex flex-col justify-between">
+            <p class="text-base">CONIFERS</p>
+            <p class="text-4xl font-bold">34%</p>
+          </div>
+
+          <div class="w-full">
+            <img src="./slider-images/images/leafoutline.png" alt="" width="100px">
+          </div>
+
+        </div>
+
+        <!--Card 4-->
+        <div class="flex space-x-4 items-center justify-center  ">
+
+          <div class="flex flex-col justify-between">
+            <p class="text-base">BIRDS</p>
+            <p class="text-4xl font-bold">12%</p>
+          </div>
+
+          <div class="w-full">
+            <img src="./slider-images/images/Raven_000000.png" alt="" width="70px">
+          </div>
+
+        </div>
+
+        <!--Card 5-->
+        <div class="flex space-x-4 items-center justify-center  ">
+
+          <div class="flex flex-col justify-between">
+            <p class="text-base">REEF CORALS</p>
+            <p class="text-4xl font-bold">44%</p>
+          </div>
+
+          <div class="w-full">
+            <img src="./slider-images/images/reef.png" alt="" width="100px">
+          </div>
+
+        </div>
+
+        <!--Card 6-->
+        <div class="flex space-x-96  items-center justify-center  col-span-3 ">
+
+          <div class="flex flex-col justify-between ">
+            <p class="text-base">REPTILES</p>
+            <p class="text-4xl font-bold">21%</p>
+          </div>
+
+          <div class="w-full ">
+            <img src="./slider-images/images/lizardoutline.svg" alt="" width="75  px">
+          </div>
+
+        </div>
+
+        <!--Card 7-->
+        <div class="flex  gap-72 items-center justify-center  col-span-2 ">
+
+          <div class="flex flex-col justify-between">
+            <p class="text-base">CYCADS</p>
+            <p class="text-4xl font-bold">71%</p>
+          </div>
+
+          <div class="w-full">
+            <img src="./slider-images/images/palmtreeoutline.svg" alt="" width="80px">
+          </div>
+
+        </div>
+
+      </div>
+
+      <button
+        class="p-[0.9rem] rounded-md text-base text-white bg-green-400 transition-all duration-200 hover:bg-green-600">
+        Take action
+      </button>
+
+    </div>
+  </section>
+
+
+
+  <!--Criteria Section-->
+  <section class="font-mullish w-full mt-20 criteria-section">
+    <div class="w-11/12 max-w-[1300px] mx-auto  ">
+
+      <h2 class="text-5xl  heading common-heading  relative  pb-5 place-self-center">Categories and Criteria</h2>
+      <p class="text-xl leading-[1.4] font-mullish pt-6 pb-12">
+        The IUCN Red List Categories and Criteria are intended to be an easily and widely understood system for
+        classifying species at high risk of global extinction. It divides species into nine categories:<span
+          class="font-bold"> Not Evaluated, Data Deficient, Least Concern, Near Threatened, Vulnerable, Endangered,
+          Critically Endangered, Extinct in the Wild and Extinct. </span>
+
+      </p>
+
+      <div class="grid grid-cols-3 gap-4 ">
+
+        <!--Card 1-->
+        <div
+          class="bg-white shadow-md hover:shadow-xl transition-all duration-200 rounded-lg p-4  flex flex-col items-center justify-between ">
+          <img src="./slider-images/images/datadeficient.svg" alt="" width="160px" class="">
+
+
+          <div>
+            <h3 class="font-mullish text-center pt-2 pb-4 text-2xl font-bold ">Data Deficient(DD)</h3>
+
+
+            <p class=" text-gray-700 leading-[1.4] ">A taxon is Data Deficient(DD) when there is inadequate information
+              to make a direct, or indirect, assessment of its risk of extinction based on its distribution and/or
+              population status. A taxon in this category may be well studied, and its biology well known, but
+              appropriate data on abundance and/or distribution are lacking.
+
+            </p>
+
+          </div>
+
+<!-- 
+          <div class="group flex justify-between mt-4">
+            <a href="#" class="font-mullish font-bold text-green-700 group-hover:text-green-900
+            transition-all duration-200 ">Know More</a>
+            <i data-feather="chevron-right" class="w-5 h-5 text-green-700 group-hover:text-green-900 self-center"></i>
+          </div> -->
+
+        </div>
+
+
+        <!--Card 2-->
+        <div
+          class="bg-white shadow-md hover:shadow-xl transition-all duration-200 rounded-lg  p-4  flex flex-col items-center relative ">
+          <img src="./slider-images/images/leastconcern.svg" alt="" width="160px" class="">
+
+
+          <div>
+            <h3 class="font-mullish text-center pt-2 pb-4 text-2xl font-bold ">Data Deficient(DD)</h3>
+
+            <p class="text-gray-700 leading-[1.4]  ">A taxon is Least Concern(LC) when it has been evaluated against the
+              Red List criteria and does not qualify for Critically Endangered, Endangered, Vulnerable or Near
+              Threatened. </p>
+
+          </div>
+
+          <!-- <div class="group flex justify-between mt-4 absolute bottom-[1.2rem]">
+            <a href="#" class="font-mullish font-bold text-green-700 group-hover:text-green-900
+              transition-all duration-200 ">Know More</a>
+            <i data-feather="chevron-right" class="w-5 h-5 text-green-700 group-hover:text-green-900 self-center"></i>
+          </div> -->
+
+        </div>
+
+        <!--Card 3-->
+        <div
+          class="bg-white shadow-md hover:shadow-xl transition-all duration-200 rounded-lg  p-4  flex flex-col items-center  relative">
+          <img src="./slider-images/images/leastconcern.svg" alt="" width="160px" class="">
+
+
+          <div>
+            <h3 class="font-mullish text-center pt-2 pb-4 text-2xl font-bold ">Near Threatened(NT)</h3>
+
+            <p class="text-gray-700 leading-[1.4]  ">A taxon is Near threatened(NT) when it has been evaluated against
+              the criteria but does not qualify for Critically Endangered, Endangered or Vulnerable now, but it is close
+              to qualifying for or is likely to qualify for a threatened category in the near future.</p>
+
+          </div>
+<!-- 
+          <div class="group flex justify-between mt-4 absolute bottom-4">
+            <a href="#" class="font-mullish font-bold text-green-700 group-hover:text-green-900
+              transition-all duration-200">Know More</a>
+            <i data-feather="chevron-right" class="w-5 h-5 text-green-700 group-hover:text-green-900 self-center"></i>
+          </div> -->
+
+        </div>
+
+        <!--Card 4-->
+        <div
+          class="bg-white shadow-md hover:shadow-xl transition-all duration-200 rounded-lg  p-4  flex flex-col items-center relative ">
+          <img src="./slider-images/images/vulnerable.svg" alt="" width="160px" class="">
+
+
+          <div>
+            <h3 class="font-mullish text-center pt-2 pb-4 text-2xl font-bold ">Vulnerable(VU)</h3>
+
+            <p class="text-gray-700 leading-[1.4]  ">A taxon is Vulnerable(VU) when the best available evidence
+              indicates that it meets any of the criteria A to E for Vulnerable, and it is therefore considered to be
+              facing a high risk of extinction in the wild.</p>
+
+          </div>
+
+          <!-- <div class="group flex justify-between mt-4 absolute bottom-4">
+            <a href="#" class="font-mullish font-bold text-green-700 group-hover:text-green-900
+              transition-all duration-200">Know More</a>
+            <i data-feather="chevron-right" class="w-5 h-5 text-green-700 group-hover:text-green-900 self-center"></i>
+          </div> -->
+
+        </div>
+
+        <!--Card 5-->
+        <div
+          class="bg-white shadow-md hover:shadow-xl transition-all duration-200 rounded-lg p-4  flex flex-col items-center relative ">
+          <img src="./slider-images/images/endangered.svg" alt="" width="160px" class="">
+
+
+          <div>
+            <h3 class="font-mullish text-center pt-2 pb-4 text-2xl font-bold ">Endangered(EN)</h3>
+
+            <p class="text-gray-700 leading-[1.4]  ">A taxon is Endangered(EN) when the best available evidence
+              indicates that it meets any of the criteria A to E for Endangered, and it is therefore considered to be
+              facing a very high risk of extinction in the wild.</p>
+
+          </div>
+
+          <!-- <div class="group flex justify-between mt-4 absolute bottom-[1.1rem]">
+            <a href="#" class="font-mullish font-bold text-green-700 group-hover:text-green-900
+              transition-all duration-200">Know More</a>
+            <i data-feather="chevron-right" class="w-5 h-5 text-green-700 group-hover:text-green-900 self-center"></i>
+          </div> -->
+
+        </div>
+
+        <!--Card 6-->
+        <div
+          class="bg-white shadow-md hover:shadow-xl transition-all duration-200 rounded-lg p-4  flex flex-col items-center  ">
+          <img src="./slider-images/images/criticallyendangered.svg" alt="" width="160px" class="">
+
+
+          <div>
+            <h3 class="font-mullish text-center pt-2 pb-4 text-2xl font-bold ">Critically Endangered(CR)</h3>
+
+            <p class="text-gray-700 leading-[1.4]  ">A taxon is Critically Endangered(CR) when the best available
+              evidence indicates that it meets any of the criteria A to E for Critically Endangered, and it is therefore
+              considered to be facing an extremely high risk of extinction in the wild.</p>
+
+          </div>
+
+          <!-- <div class="group flex justify-between mt-4 ">
+            <a href="#" class="font-mullish font-bold text-green-700 group-hover:text-green-900
+              transition-all duration-200">Know More</a>
+            <i data-feather="chevron-right" class="w-5 h-5 text-green-700 group-hover:text-green-900 self-center"></i>
+          </div> -->
+
+        </div>
+
+        <!--Card 7-->
+        <div
+          class="bg-white shadow-md hover:shadow-xl transition-all duration-200 rounded-lg  p-4  flex flex-col items-center  ">
+          <img src="./slider-images/images/extinctinthewild.svg" alt="" width="160px" class="">
+
+
+          <div>
+            <h3 class="font-mullish text-center pt-2 pb-4 text-2xl font-bold ">Extinct in the Wild(EW)</h3>
+
+            <p class="text-gray-700 leading-[1.4]  "> A taxon is Extinct in the Wild (EW) when it is known only to
+              survive in cultivation, in captivity or as a naturalized population (or populations) well outside the past
+              range. A taxon is presumed Extinct in the Wild when exhaustive surveys in known and/or expected habitat,
+              at appropriate times (diurnal, seasonal, annual), throughout its historic range have failed to record an
+              individual. Surveys should be over a time frame appropriate to the taxon's life cycle and life form.</p>
+
+          </div>
+<!-- 
+          <div class="group flex justify-between mt-4 ">
+            <a href="#" class="font-mullish font-bold text-green-700 group-hover:text-green-900
+              transition-all duration-200">Know More</a>
+            <i data-feather="chevron-right" class="w-5 h-5 text-green-700 group-hover:text-green-900 self-center"></i>
+          </div> -->
+
+        </div>
+
+        <!--Card 8-->
+        <div
+          class="bg-white shadow-md hover:shadow-xl transition-all duration-200 rounded-lg p-4  flex flex-col items-center relative ">
+          <img src="./slider-images/images/extinct.svg" alt="" width="160px" class="">
+
+
+          <div>
+            <h3 class="font-mullish text-center pt-2 pb-4 text-2xl font-bold ">Extinct(EX)</h3>
+
+            <p class="text-gray-700 leading-[1.4]  "> A taxon is Extinct (EX) when there is no reasonable doubt that the
+              last individual has died. A taxon is presumed Extinct when exhaustive surveys in known and/or expected
+              habitat, at appropriate times (diurnal, seasonal, annual), throughout its historic range have failed to
+              record an individual. Surveys should be over a time frame appropriate to the taxon's life cycle and life
+              form.</p>
+
+          </div>
+
+          <!-- <div class="group flex justify-between mt-4 absolute bottom-[1.18rem]">
+            <a href="#" class="font-mullish font-bold text-green-700 group-hover:text-green-900
+              transition-all duration-200">Know More</a>
+            <i data-feather="chevron-right" class="w-5 h-5 text-green-700 group-hover:text-green-900 self-center"></i>
+          </div> -->
+
+        </div>
+
+        <!--Card 9-->
+        <div
+          class="bg-white shadow-md hover:shadow-xl transition-all duration-200 rounded-lg p-4  flex flex-col items-center relative ">
+          <img src="./slider-images/images/notevaluated.svg" alt="" width="160px" class="">
+
+
+          <div>
+            <h3 class="font-mullish text-center pt-2 pb-4 text-2xl font-bold ">Not Evaluated(NE)</h3>
+
+            <p class="text-gray-700 leading-[1.4]  "> A taxon is Not Evaluated(NE) when it has not yet been evaluated
+              against the criteria. Not Evaluated(NE) species are not published on the IUCN Red List</p>
+
+          </div>
+<!-- 
+          <div class="group flex justify-between mt-4 absolute bottom-[1.27rem]">
+            <a href="#" class="font-mullish font-bold text-green-700 group-hover:text-green-900
+              transition-all duration-200">Know More</a>
+            <i data-feather="chevron-right" class="w-5 h-5 text-green-700 group-hover:text-green-900 self-center"></i>
+          </div> -->
+
+        </div>
+
+      </div>
+
+
+
+
+
+
+
+
+    </div>
+  </section>
+
+
+  <!--Contact us section-->
+  <section class="w-full h-full mt-24 mb-16">
+    <div class="w-11/12 max-w-[1300px] mx-auto flex flex-col">
+
+      <h2 class="text-5xl  heading common-heading  relative pb-5 self-center mb-12">Contact Us</h2>
+
+      <form class="w-[70%] mx-auto   ">
+        <div class="grid grid-cols-2 gap-6 mb-6">
+
+
+          <div class="w-full  ">
+            <h4 class="text-lg text-gray-800">Firstname</h4>
+            <input type="text" placeholder="Enter your firstname" class="w-full  pt-6 pb-6 pl-6 pr-4 border-none outline-none 
+            text-base focus-visible:outline-1 focus-visible:outline focus-visible:outline-green-600">
+          </div>
+
+          <div class="w-full">
+            <h4 class="text-lg text-gray-800">Lastname</h4>
+
+            <input type="text" placeholder="Enter your lastname"
+              class="w-full pt-6 pb-6 pl-6 pr-4 border-none outline-none text-base focus-visible:outline-1 focus-visible:outline focus-visible:outline-green-600">
+          </div>
+
+        </div>
+
+        <div class="mb-6">
+          <h4 class="text-lg text-gray-800">Email</h4>
+          <input type="email" placeholder="Enter your email"
+            class="w-full pt-6 pb-6 pl-6 pr-4 border-none outline-none text-base focus-visible:outline-1 focus-visible:outline focus-visible:outline-green-600 ">
+        </div>
+
+        <div class="mb-12">
+          <h4 class="text-lg text-gray-800">Comments</h4>
+          <textarea name="comments" id="" cols="80" rows="10" placeholder="Comments"
+            class="w-full pt-6 pb-6 pl-6 pr-4 border-none outline-none text-base focus-visible:outline-1 focus-visible:outline focus-visible:outline-green-600"></textarea>
+        </div>
+
+        <div>
+          <button
+            class="pt-4 pb-4 pr-8 pl-8 rounded-md text-base text-white bg-[#244b24] transition-all duration-200 hover:bg-[#173817]">Submit
+          </button>
+
+        </div>
+      </form>
+
+    </div>
+  </section>
+
+
+  <!--Footer Section-->
+  <section class="w-[100%] font-mullish max-h-[55%] overflow-x-hidden overflow-y-hidden  bg-gray-700 ">
+    <div class="w-11/12 max-w-[1300px] mx-auto pt-24 pb-10  overflow-hidden ">
+
+      <div class="grid grid-cols-4 gap-10 overflow-hidden">
+
+
+        <div class="flex flex-col gap-[24px]">
+          <h1 class="font-extrabold font-mullish text-[32px] leading-[30.4px] text-green-600">WildGuardians</h1>
+          <div class="text-white text-[23px] flex gap-6 cursor-pointer">
+            <i class="ri-twitter-fill"></i>
+            <i class="ri-instagram-line"></i>
+            <i class="ri-facebook-box-fill"></i>
+            <i class="ri-youtube-fill"></i>
+          </div>
+        </div>
+
+
+
+        <div>
+          <h2 class="text-[16px]  xl:py-[10px] py-[15px] text-green-500">About</h2>
+          <ul class="text-white flex flex-col gap-[10px] leading-[24px] font-[400]">
+            <li><a href="#">Sponsors</a></li>
+            <li><a href="#">Background & History</a></li>
+            <li><a href="#">Frequently Asked Questions</a></li>
+          </ul>
+        </div>
+
+
+        <div>
+          <h2 class="text-[16px]  xl:py-[10px] py-[15px] text-green-500">Company</h2>
+          <ul class="text-white flex flex-col gap-[10px] leading-[24px] font-[400]">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Jobs</a></li>
+            <li><a href="#">Branding</a></li>
+            <li><a href="#">Newsroom</a></li>
+          </ul>
+        </div>
+
+
+        <div>
+          <h2 class="text-[16px]  xl:py-[10px] py-[15px] text-green-500">Policies</h2>
+          <ul class="text-white flex flex-col gap-[10px] leading-[24px] font-[400]">
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+            <li><a href="#">Cookie Settings</a></li>
+            <li><a href="#">Guidelines</a></li>
+            <li><a href="#">Acknowledgements</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+
+      <div class="border-t-2 border-green-500  flex justify-center  items-center pt-7  mx-5 hello overlfowh">
+        <div class="flex space-y-2 flex-col justify-center items-center">
+          <img src="./slider-images/images/wildGuardianslogo.png" alt="" width="180px">
+          <p class="text-white">&copy;2025 WildGuardians Inc. All rights reserved</p>
+        </div>
+      </div>
+
+
+
+    </div>
+  </section>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+
+
+  <script>
+    //  var swiper = new Swiper(".mySwiper", {
+    //     /*pagination: {
+    //       el: ".swiper-pagination",
+
+    //     }, */
+    //     autoplay: {
+    //       delay: 5000,
+    //       disableOnInteraction: false,
+
+    //     }
+
+
+    //   }); 
+
+
+
+    const swipers = document.querySelectorAll(".mySwiper");
+
+    swipers.forEach((swiperElement) => {
+      const swiperInstance = new Swiper(swiperElement, {
+        autoplay: {
+          delay: 5000, // Set delay to 5 seconds
+          disableOnInteraction: false,
+        },
+      });
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              swiperInstance.autoplay.start(); // Start autoplay when in view
+            } else {
+              swiperInstance.autoplay.stop(); // Stop autoplay when out of view
+            }
+          });
+        },
+        { threshold: 0.5 } // Trigger when 50% of the swiper is visible
+      );
+
+      observer.observe(swiperElement);
+    });
+
+
+    var swiper = new Swiper(".mySwiper2", {
+      loop: true,
+      slidesPerView: 4,
+      spaceBetween: 30,
+      loopedSlides: 4,
+
+      // pagination: {
+      //   el: ".swiper-pagination",
+      //   clickable: true,
+
+      // },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+
+      autoplay: false,
+    });
+
+
+    var swiper = new Swiper(".mySwiper3", {
+      loop: true,
+      slidesPerView: 2,
+      spaceBetween: 30,
+      loopedSlides: 4,
+
+      // pagination: {
+      //   el: ".swiper-pagination",
+      //   clickable: true,
+
+      // },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+
+      autoplay: false,
+    });
+
+
+
+
+    // Select the counter element from the DOM
+    const counter = document.querySelector('.counter');
+
+    // Set up the Intersection Observer to detect when the counter is in view
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          // Start the counter when the element is fully visible
+          startCounter();
+          // Stop observing after starting to prevent multiple triggers
+          observer.unobserve(counter);
+        }
+      });
+    }, { threshold: 1.0 }); // Trigger when 100% of the element is visible
+
+    // Start observing the counter element
+    observer.observe(counter);
+
+    // Function to animate the counter
+    function startCounter() {
+      const startTime = performance.now(); // Get the current timestamp
+      const duration = 3500; // Animation duration in milliseconds (1 second)
+      const endValue = 46000; // Target value for the counter
+
+      function animate(currentTime) {
+        const elapsed = currentTime - startTime; // Time elapsed since start
+        const progress = Math.min(elapsed / duration, 1); // Progress from 0 to 1
+        const currentValue = Math.floor(progress * endValue); // Current counter value
+        counter.textContent = currentValue; // Update the display
+
+        if (progress < 1) {
+          // Continue animation if not complete
+          requestAnimationFrame(animate);
+        } else {
+          // Ensure the final value is exactly 2000
+          counter.textContent = endValue;
+        }
+      }
+
+      // Start the animation
+      requestAnimationFrame(animate);
+    }
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <script>
+    feather.replace();
+  </script>
+
+
+
+
+
+</body>
+
+</html>
